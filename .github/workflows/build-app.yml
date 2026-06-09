@@ -33,24 +33,24 @@ jobs:
       - name: 打包（Windows）
         if: matrix.os == 'windows-latest'
         run: |
-          pyinstaller --onefile --windowed ^
-          --add-data "myfont.ttf;." ^
-          --add-data "名单.txt;." ^
-          --add-data "bgm.mp3;." ^
-          --name "抽奖程序_Windows" ^
-          --icon=none ^  # 可选：替换为.ico图标路径
+          pyinstaller --onedir --windowed --name "崇道堂幸运抽奖" \
+          --add-data "myfont.ttf;." \
+          --add-data "bgm.mp3;." \
+          --add-data "名单.txt;." \
+          --clean \
+          --disable-windowed-traceback \
           lottery_ball.py
         shell: cmd
 
       - name: 打包（macOS）
         if: matrix.os == 'macos-latest'
         run: |
-          pyinstaller --onefile --windowed \
+          pyinstaller --onedir --windowed --name "崇道堂幸运抽奖" \
           --add-data "myfont.ttf:." \
-          --add-data "名单.txt:." \
           --add-data "bgm.mp3:." \
-          --name "抽奖程序_macOS" \
-          --icon=none \  # 可选：替换为.icns图标路径
+          --add-data "名单.txt:." \
+          --clean \
+          --disable-windowed-traceback \
           lottery_ball.py
 
       - name: 上传打包产物
