@@ -392,8 +392,10 @@ while True:
                     if len(candidates) > 0 and "暂无" not in candidates[0]:
                         if not is_rolling:
                             is_rolling, winners = True, []
+                            pygame.mixer.music.play(-1)
                         else:
                             is_rolling = False
+                            pygame.mixer.music.stop()
                             winners = random.sample(candidates, min(len(candidates), draw_count))
                             for w in winners: candidates.remove(w)
                             init_nodes()
