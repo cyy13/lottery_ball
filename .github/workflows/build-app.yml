@@ -33,11 +33,11 @@ jobs:
       - name: 打包（Windows）
         if: matrix.os == 'windows-latest'
         run: |
-          pyinstaller --onedir --windowed --name "崇道堂幸运抽奖" \
-          --add-data "myfont.ttf;." \
-          --add-data "bgm.mp3;." \
-          --add-data "名单.txt;." \
-          --clean \
+          pyinstaller --onedir --windowed --name "崇道堂幸运抽奖" ^
+          --add-data "myfont.ttf;." ^
+          --add-data "bgm.mp3;." ^
+          --add-data "名单.txt;." ^
+          --clean ^
           lottery_ball.py
         shell: cmd
 
